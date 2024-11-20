@@ -12,7 +12,7 @@ False
 pythonisgreatpythonisgreat
 '''
 
-        result = subprocess.run(['python3', student_script],
+        result = subprocess.run(['python', student_script],
                                 capture_output=True, text=True)
         self.assertEqual(result.stdout, expected_output)
 
