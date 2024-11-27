@@ -4,17 +4,19 @@ def power_set(L: List) -> Set[Tuple]:
     L = sorted(L)
     result = set()
     
-    def recursive_helper(index: int, current_subset: List):
-        if index == len(L):
-            result.add(tuple(current_subset))
+    def subset(i: int, p_subset: List):
+        if i == len(L):
+            result.add(tuple(p_subset))
             return
         
-        recursive_helper(index + 1, current_subset)
-        recursive_helper(index + 1, current_subset + [L[index]])
+        subset(i + 1, p_subset)
+        subset(i + 1, p_subset + [L[i]])
     
-    recursive_helper(0, [])
+    subset(0, [])
     return result
 
-print("result:", power_set([]))
-print("result:", power_set([3, 1, 2]))
-print("result:", power_set(['c', 'a', 'b']))
+
+if __name__ == '__main__':
+    print("result:", power_set([]))
+    print("result:", power_set([3, 1, 2]))
+    print("result:", power_set(['c', 'a', 'b']))
